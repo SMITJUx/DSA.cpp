@@ -285,6 +285,32 @@ int main() {
 }
 ```
 
+#### Transform Operations
+
+```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+    std::vector<int> w(v.size()));
+
+    std::transform(v.begin(), v.end(), w.begin(), [](int& x) -> int {   // Applies the unary function and store the result in w
+        return x *= 2;
+    });
+    std::replace(v.begin(), v.end(), 1, 10);                            // Replaces 1 with 10
+    std::replace_if(v.begin(), v.end(), [](const int& x) -> bool {      // Replaces all even numbers by 10
+        return x % 2 == 0;
+    }, 10);
+    std::replace_copy(v.begin(), v.end(), w.begin(), 1, 10);            // Copies and replaces in w
+    std::replace_copy_if(v.begin(), v.end(), w.begin(), [](const int& x) -> bool { // Copies and replaces in w if unary predicate is true
+        return x % 2 == 0;
+    }, 10);
+
+    return 0;
+}
+```
+
 ### Sorting Operations
 
 ```c++
