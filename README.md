@@ -352,6 +352,28 @@ int main() {
 
 ### Sorting Operations
 
+#### Sort Operations
+
+```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+    std::vector<int> w(v.size());
+
+    std::sort(v.begin(), v.end());
+    std::stable_sort(v.begin(), v.end());
+    std::partial_sort(v.begin(), v.begin() + 2, v.end());
+    std::partial_sort_copy(v.begin(), v.end(), w.begin(), w.end());
+
+    bool b1  = std::is_sorted(v.begin(), v.end());
+    auto it1 = std::is_sorted_until(v.begin(), v.end());
+
+    return 0;
+}
+```
+
 #### Binary Search Operations
 
 ```c++
