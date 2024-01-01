@@ -190,3 +190,45 @@ int main() {
 ```
 
 ## Algorithms
+
+### Non-Modifying Sequence Operations
+
+#### Batch Operations
+
+```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+
+    std::for_each(v.begin(), v.end(), [](int& x) -> void {  // Applies a unary function on each element
+        x *= 2;
+    });
+    std::for_each_n(v.begin(), 3, [](int& x) -> void {      // Applies a unary function on the first n elements
+        x *= 2
+    });
+    
+    return 0;
+}
+```
+
+#### Search Operations
+
+```c++
+```
+
+### Modifying Sequence Operations
+
+```c++
+```
+
+### Sorting Operations
+
+```c++
+```
+
+### Numeric Operations
+
+```c++
+```
