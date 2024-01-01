@@ -216,6 +216,52 @@ int main() {
 #### Search Operations
 
 ```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+    std::vector<int> w({1, 2});
+
+    auto it1  = std::find(v.begin(), v.end(), 2);                                // Returns an iterator to the first element that match the value
+    auto it2  = std::find_if(v.begin(), v.end(), [](const int& x) -> bool {      // Returns an iterator to the first element for which the predicate is true
+        return x % 2 == 0;
+    });
+    auto it3  = std::find_if_not(v.begin(), v.end(), [](const int& x) -> bool {  // Returns an iterator to the first element for which the predicate is false
+        return x % 2 == 0;
+    });
+    auto it4  = std::find_end(v.begin(), v.end(), w.begin(), w.end());           // Return an iterator to the last occurrence of the sequence w in v
+    auto it5  = std::find_end(v.begin(), v.end(), w.begin(), w.end(), [](const int& a, const int& b) -> bool { // Return an iterator to the last occurrence of the sequence w in v
+        a == b - 10;
+    });
+    auto it6  = std::find_first_of(v.begin(), v.end(), w.begin(), w.end());      // Returns an iterator to the first element from w find in v
+    auto it7  = std::mismatch(v.begin(), v.end(), w.begin(), w.end());           // Returns an iterator to the first position where v and w differ
+    auto it8  = std::search(v.begin(), v.end(), w.begin(), w.end());             // Returns an iterator to the first occurrence of w in v
+    auto it9  = std::search_n(v.begin(), v.end(), 3, 1);                         // Returns an iterator to the first occurrence of 1 that appears 3 times consecutively
+    auto it10 = std::adjacent_find(v.begin(), v.end());                          // Returns an iterator to the first pair of equal adjacent elements
+    auto it11 = std::adjacent_find(v.begin(), v.end(), [](const int& a, const int& b) -> bool { // Returns an iterator to the first pair of equal adjacent elements using the binary function
+        return a == b - 10;
+    });
+
+    bool b1 = std::all_of(v.begin(), v.end(), [](const int& x) -> bool {        // Checks if all elements verify the unary function
+        return x % 2 == 0;
+    });
+    bool b2 = std::any_of(v.begin(), v.end(), [](const int& x) -> bool {        // Checks if at least one element verify the unary function
+        return x % 2 == 0;
+    });
+    bool b3 = std::none_of(v.begin(), v.end(), [](const int& x) -> bool {       // Checks if none of the element verify the unary function
+        return x % 2 == 0;
+    });
+
+    long c1 = std::count(v.begin(), v.end(), 3);                                // Counts the number of 3 in v
+    long c2 = std::count_if(v.begin(), v.end(), [](const int& x) -> bool {      // Counts the number of element that verify the unary function
+        return x % 2 == 0;
+    });
+
+    bool eq = std::equal(v.begin(), v.end(), w.begin(), w.end());               // Checks if two sequence are equal
+
+    return 0;
+}
 ```
 
 ### Modifying Sequence Operations
