@@ -443,3 +443,24 @@ int main() {
     return 0;
 }
 ```
+
+## Lambda
+
+### Capture Close
+
+```c++
+#include <iostream>
+
+int main() {
+    int x   = 10;
+    int y   = 20;
+    auto f1 = []() -> void {};                                         // Doesn't capture external variables
+    auto f2 = [x, y]() -> void { std::cout << x << y << std::endl; };  // Captures x and y by copy
+    auto f3 = [&x, &y]() -> void { std::swap(x, y); };                 // Captures x and y by reference
+    auto f4 = [=]() -> void { std::cout << x << y << std::endl; };     // Captures all external variables
+    auto f5 = [&]() -> void { std::swap(x, y); };                      // Captures all external variables by reference
+    auto f6 = [=, &y]() -> void { std::cout << x << y << std::endl; }; // Capture all external variables by copies except y by reference
+
+    return 0;
+}
+```
