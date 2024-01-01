@@ -4,6 +4,8 @@
 
 ### Sequence
 
+__**Note: You may use a `std::list` if you need to keep iterators stability doing operations like insertion and deletion.**__
+
 #### Vector
 
 ```c++
