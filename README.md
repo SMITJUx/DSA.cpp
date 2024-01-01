@@ -311,6 +311,31 @@ int main() {
 }
 ```
 
+#### Removing Operations
+
+```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+    std::vector<int> w(v.size()));
+
+    auto it1 = std::remove(v.begin(), v.end(), 3);                           // Removes all the 3 and returns an iterator pointing to the start of the new sub-range
+    auto it2 = std::remove_if(v.begin(), v.end(), [](const int& x) -> bool { // Removes all the element verifying the unary predicate and returns an iterator pointing to the start of the new sub-range
+        return x % 2 == 0;
+    });
+    auto it3 = std::unique(v.begin(), v.end());                              // Removes consecutive duplicate elements and returns an iterator pointer to the start of the new sub-range
+
+    return 0;
+}
+```
+
+#### Order-Changing Operations
+
+```c++
+```
+
 ### Sorting Operations
 
 ```c++
