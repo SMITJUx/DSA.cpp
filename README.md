@@ -334,6 +334,20 @@ int main() {
 #### Order-Changing Operations
 
 ```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+    std::vector<int> w(v.size()));
+
+    std::reverse(v.begin(), v.end());                               // Reverses v
+    std::reverse_copy(v.begin(), v.end(), w.begin());               // Copies v into w and reverse w
+    std::rotate(v.begin(), v.begin() + 1, v.end());                 // Rotates so the second element goes at the end of v
+    std::rotate_copy(v.begin(), v.begin() + 1, v.end(), w.begin()); // Copies v into and rotate w
+
+    return 0;
+}
 ```
 
 ### Sorting Operations
