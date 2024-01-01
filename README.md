@@ -120,7 +120,7 @@ int main() {
 }
 ```
 
-### map & unordered_map
+#### map & unordered_map
 
 ```c++
 #include <map>
@@ -152,3 +152,41 @@ int main() {
     return 0;
 }
 ```
+
+### Adaptors
+
+```c++
+```
+
+#### stack
+
+```c++
+```
+
+#### queue
+
+```c++
+```
+
+#### priority_queue
+```c++
+```
+
+## Iterators
+
+```c++
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+
+    auto l  = v.begin();  // Returns an iterator to the beginning
+    auto r  = v.end();    // Returns an iterator to the end
+    auto rl = v.rbegin(); // Returns a reverse iterator to the beginning
+    auto rr = v.rend();   // Returns a reverse iterator to the end
+    
+    return 0;
+}
+```
+
+## Algorithms
