@@ -60,3 +60,32 @@ int main() {
     return 0;
 }
 ```
+
+#### Deque
+
+```c++
+#include <deque>
+
+int main() {
+    std::deque<int> li({1, 2, 3, 4});
+
+    std::size_t size   = li.size();     // Number of elements
+    int         last   = li.back();     // Last element
+    int         first  = li.front();    // First element
+    int         second = li[1];         // Second element
+    int         third  = li.at(2);    // Third element access with bounds checking, throw std::out_of_range
+    bool        empty  = li.empty();    // Check if the sequence is empty or not
+
+    li.push_front(0);                      // Add the element 0 at the beginning
+    li.push_back(5);                       // Add the element 5 at the end
+    li.insert(li.begin() + 1, 10);  // Add the element 10 at the index 1
+    li.erase(li.begin() + 1);         // Remove the element at the index 1
+    li.emplace_back();                       // Construct an element and add it at the end
+    li.emplace_front();                      // Construct an element and add it at the beginning
+    li.pop_back();                           // Remove the last element
+    li.pop_front();                          // Remove the first element
+    li.clear();                              // Remove all elements
+
+    return 0;
+}
+```
