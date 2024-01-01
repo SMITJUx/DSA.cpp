@@ -417,3 +417,29 @@ int main() {
     return 0;
 }
 ```
+
+#### Set Operations
+
+```c++
+#include <algorithm>
+#include <set>
+#include <vector>
+
+int main() {
+    std::set<int> s1({1, 2, 3, 4});
+    std::set<int> s2({1, 2, 5, 6});
+    std::vector<int> v;
+
+    bool b = std::includes(s1.begin(), s1.end(), s2.begin(), s2.end());
+
+    std::merge(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(v));
+    v.clear();
+    std::set_union(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(v));
+    v.clear();
+    std::set_intersection(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(v));
+    v.clear();
+    std::set_difference(s1.begin(), s1.end(), s2.begin(), s2.end(), std::back_inserter(v));
+
+    return 0;
+}
+```
