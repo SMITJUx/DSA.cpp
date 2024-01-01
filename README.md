@@ -374,7 +374,24 @@ int main() {
 }
 ```
 
-### Numeric Operations
+#### Min & Max Operations
 
 ```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+
+    int m1 = std::max(1, 2);
+    int m2 = std::max(1, 2, [](const int& a, const int& b) -> bool {
+        return a % b;
+    });
+
+    auto it1 = std::max_element(v.begin(), v.end());
+    auto it2 = std::min_element(v.begin(), v.end());
+    auto it3 = std::minmax_element(v.begin(), v.end());
+
+    return 0;
+}
 ```
