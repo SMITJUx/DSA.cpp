@@ -352,7 +352,26 @@ int main() {
 
 ### Sorting Operations
 
+#### Binary Search Operations
+
 ```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+
+    auto it1 = std::lower_bound(v.begin(), v.end(), 1);     // Returns an iterator to the first not less than the value (>=)
+    auto it2 = std::upper_bound(v.begin(), v.end(), 1);     // Returns an iterator to the first greater than the value (>)
+    auto it3 = std::equal_range(v.begin(), v.end(), 1);     // Returns an iterator to the first range of values 1
+
+    bool b1 = std::binary_search(v.begin(), v.end(), 1);    // Determines if an element is in the container
+    bool b2 = std::binary_search(v.begin(), v.end(), 1, [](const int& a, const int& b) { // Determines if an element is in the container with custom comparator
+        return a == b - 10;
+    });
+
+    return 0;
+}
 ```
 
 ### Numeric Operations
