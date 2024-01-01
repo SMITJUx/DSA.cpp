@@ -266,7 +266,23 @@ int main() {
 
 ### Modifying Sequence Operations
 
+#### Copy Operations
 ```c++
+#include <algorithm>
+#include <vector>
+
+int main() {
+    std::vector<int> v({1, 2, 3, 4});
+    std::vector<int> w(v.size());
+
+    auto it1 = std::copy(v.begin(), v.end(), w.begin());                             // Copies v in w, if source and destination overlaps it is UB
+    auto it2 = std::copy_if(v.begin(), v.end(), w.begin(), [](const int& x)-> bool { // Copies from v in w if the unary function is true
+        return x % 2 == 0;
+    });
+    auto it3 = std::copy_n(v.begin(), 3, w.begin());                                 // Copies the first n element from v to w
+
+    return 0;
+}
 ```
 
 ### Sorting Operations
