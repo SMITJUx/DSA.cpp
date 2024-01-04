@@ -4,9 +4,20 @@
 
 ### Sequence
 
-__**Note: You may use a `std::list` if you need to keep iterators stability doing operations like insertion and deletion.**__
+\***\*Note: You may use a `std::list` if you need to keep iterators stability doing operations like insertion and deletion.\*\***
 
 #### Vector
+
+A `std::vector` is a sequence container that encapsulates dynamic sized arrays. The storage of the vector is handled automatically,
+vectors usually occupy more space than static arrays. Also, the STL proves a specialization of `std::vector<bool>` which is space efficiently optimized.
+
+|         Operation         | Time Complexity |
+|:-------------------------:|:---------------:|
+|          Access           |     $O(1)$      |
+|          Insert           |     $O(n)$      |
+| Insert (i = v.size() - 1) |     $O(1)$      |
+|          Delete           |     $O(n)$      |
+| Delete (i = v.size() - 1) |     $O(1)$      |
 
 ```c++
 #include <vector>
@@ -35,6 +46,15 @@ int main() {
 ```
 
 #### List
+
+A `std::list` is a container that supports constant time insertion and removal of elements from anywhere in the container.
+But it doesn't support a random access.
+
+|         Operation         | Time Complexity |
+|:-------------------------:|:---------------:|
+|          Access           |     $O(n)$      |
+|          Insert           |     $O(1)$      |
+|          Delete           |     $O(1)$      |
 
 ```c++
 #include <list>
@@ -156,20 +176,25 @@ int main() {
 ### Adaptors
 
 ```c++
+
 ```
 
 #### stack
 
 ```c++
+
 ```
 
 #### queue
 
 ```c++
+
 ```
 
 #### priority_queue
+
 ```c++
+
 ```
 
 ## Iterators
@@ -184,7 +209,7 @@ int main() {
     auto r  = v.end();    // Returns an iterator to the end
     auto rl = v.rbegin(); // Returns a reverse iterator to the beginning
     auto rr = v.rend();   // Returns a reverse iterator to the end
-    
+
     return 0;
 }
 ```
@@ -208,7 +233,7 @@ int main() {
     std::for_each_n(v.begin(), 3, [](int& x) -> void {      // Applies a unary function on the first n elements
         x *= 2
     });
-    
+
     return 0;
 }
 ```
@@ -267,6 +292,7 @@ int main() {
 ### Modifying Sequence Operations
 
 #### Copy Operations
+
 ```c++
 #include <algorithm>
 #include <vector>
