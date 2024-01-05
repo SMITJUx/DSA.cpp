@@ -199,6 +199,16 @@ int main() {
 
 ## Iterators
 
+In C++ there are multiple types of iterators:
+
+|   Iterator    |                      Ability                      |                 Providers                  |
+|:-------------:|:-------------------------------------------------:|:------------------------------------------:|
+|     Input     |                   Reads forward                   |                  istream                   |
+|    Output     |                  Writes forward                   |             ostream, inserter              |
+|    Forward    |               Reads/Writes forward                | forward_list, unordered_map, unordered_set |
+| Bidirectional |           Reads/Writes forward/backward           |               list, set, map               |
+| Random Access | Reads/Writes with random and constant time access |        vector, deque, string, array        |
+
 ```c++
 #include <vector>
 
@@ -490,3 +500,26 @@ int main() {
     return 0;
 }
 ```
+
+## Some Algorithms
+
+### Array
+#### Two Pointer
+
+#### Sliding Window
+#### Reverse
+#### Rotate
+
+### Linked List
+
+#### Reverse
+#### Merge Two List
+
+### Binary Tree
+
+#### Binary Search
+#### Binary Tree Traversal
+#### BFS
+#### DFS
+#### Binary Tree Comparison
+#### Binary Tree Symmetry
